@@ -1,0 +1,217 @@
+{% extends 'users/base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <header class="background">
+    <!-- <hr class="line-w /> -->
+    <section class="firstSection">
+      <div class="box-main">
+        <div class="firstHalf">
+          <h1 class="text-big ">Where Reader Meet Leaders</h1>
+          <p class="title-small">
+            90 minutes videos for aspirants who want personal growth.
+          </p>
+          <div class="buttons">
+            <a href="{% url 'login' %}"> <button class="btn">Get Started</button>
+            </a>
+          </div>
+        </div>
+        <div class="secondHalf">
+          <img src="{% static 'img/soyah.jpg' %}" alt="" />
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section class="container-all">
+      <div class="first-section">
+        <h1>You're Ready <br>So are We</h1>
+
+        <div class="row-first">
+
+          <div class="first-col">
+
+            <div class="name-of-mentor">About Us</div></a>
+            <a href="about-course.html">
+              <div class="layer">
+                <h3>First Project</h3>
+
+              </div>
+            </a>
+
+          </div>
+
+
+
+          <div class="first-col">
+            <!-- <img src="img/prashant.jpg" alt="" /> -->
+            <div class=" r-mentor"></div>
+            <div class="name-of-mentor">Sandip Paudel</div>
+            <div class="layer">
+              <h3>Second Project</h3>
+            </div>
+          </div>
+          <div class="first-col">
+            <!-- <img src="img/sandy.jpg" alt="" /> -->
+            <div class=" r-mentor"></div>
+            <div class="name-of-mentor">Prashant Banjade</div>
+            <div class="layer">
+              <h3>Third Project</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="story">
+      <h1 class="titleStory text-big text-cl"><span style="color: #e09900;">WHO</span> WE ARE!</h1>
+      <div class="underline">
+        <p class="text-line">________________</p>
+      </div>
+      <div class="about-us">
+        <div class="photo">
+          <img class="myphoto" src="{% static 'img/usss.jpg' %}" alt="">
+        </div>
+
+        <div class="textt">
+
+          <p style="text-align:center;">
+            <span> Young </span>
+
+          </p>
+          <p style="text-align:center;">
+            <span class="bold-txt"> Learners </span>
+            <span> -Aiming </span>
+          </p>
+          <p style="text-align:center;">
+            <span> To build </span>
+          </p>
+          <p style="text-align:center;">
+            <span> A better & faster </span>
+          </p>
+          <p style="text-align:center;">
+            <span> Platform </span>
+          </p>
+          <p style="text-align:center;">
+            <span> To connect </span>
+          </p>
+          <p style="text-align:center;">
+            <span class="bold-txt"> Readers and Leaders. </span>
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+    <hr class="line-gr" />
+
+    </div>
+    </div>
+    </section>
+
+    <section class="mentor">
+      <h1>Meet Our Mentors</h1>
+
+      <div class="row">
+
+        <div class="mentor-col">
+          <!-- <img src="img/saroj.jpg" alt="" /> -->
+          <div class="mentor2 r-mentor"> </div>
+          <div class="name-of-mentor">Saroj Ghimire</div></a>
+          <a href="{% url 'ac' %}">
+            <div class="layer">
+              <h3>First Project</h3>
+
+            </div>
+          </a>
+
+        </div>
+
+
+
+        <div class="mentor-col">
+          <!-- <img src="img/prashant.jpg" alt="" /> -->
+          <div class="mentor1 r-mentor"></div>
+          <div class="name-of-mentor">Sandip Paudel</div>
+          <div class="layer">
+            <h3>Second Project</h3>
+          </div>
+        </div>
+        <div class="mentor-col">
+          <!-- <img src="img/sandy.jpg" alt="" /> -->
+          <div class="mentor3 r-mentor"></div>
+          <div class="name-of-mentor">Prashant Banjade</div>
+          <div class="layer">
+            <h3>Third Project</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="contact">
+      <div class="content">
+        <h2>Contact Us</h2>
+        <p>
+          We would love to represent to your queries and help you succed.
+          <br />
+          Feel free to get in touch with us.
+        </p>
+      </div>
+      <div class="container">
+        <div class="contactInfo">
+          <div class="box">
+            <div class="icon">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+            </div>
+            <div class="text">
+              <h3>Address</h3>
+              <p>Battisputali, Kathmandu</p>
+            </div>
+          </div>
+          <div class="box">
+            <div class="icon">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+            </div>
+            <div class="text">
+              <h3>Phone</h3>
+              <p>9808698269</p>
+            </div>
+          </div>
+          <div class="box">
+            <div class="icon">
+              <i class="fa fa-envelope-o" aria-hidden="true"></i>
+            </div>
+            <div class="text">
+              <h3>Email</h3>
+              <p>sundeeppoudel@gmail.com</p>
+            </div>
+          </div>
+        </div>
+        <div class="contactForm">
+          <form action="https://formspree.io/f/mzbykwbe" method="POST" id="my-form">
+            <h2>Send Message</h2>
+            <div class="inputBox">
+              <input type="text" name="Full Name" required="required" />
+              <span>Full Name</span>
+            </div>
+            <div class="inputBox">
+              <input type="email" name="Email" required="required" />
+              <span>Email</span>
+            </div>
+            <div class="inputBox">
+              <textarea name="Messages" required="required"></textarea>
+
+              <span>Type your Message ... </span>
+            </div>
+            <div class="inputBox">
+              <input type="submit" value="Submit" />
+            </div>
+          </form>
+          <div class="status"></div>
+        </div>
+      </div>
+      
+      {% endblock %}

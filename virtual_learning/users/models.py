@@ -1,7 +1,7 @@
 import uuid
 
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, User
 from django.core.exceptions import ValidationError
 
 
@@ -37,3 +37,11 @@ class Profile(models.Model):
 
 	def __str__(self):
 		return f"{self.user.username}'s Profile"
+
+
+class LoggedIn(models.Model):
+    name = models.CharField('name', max_length=120)
+    is_logged_in = models.BooleanField(blank= True, default=False)
+
+    def __str__(self):
+        return self.name

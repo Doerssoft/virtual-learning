@@ -1,0 +1,74 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soyah</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/utils.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@300;400&display=swap"
+        rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&family=Roboto&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9a840dc6d1.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navBar h-nav-resp">
+        <div class="logo v-class-resp">
+            <a href="{% url 'index' %}"> <img src="{% static 'img/soyah.png' %}" alt="Logo" />
+            </a>
+        </div>
+
+        <ul class="rightNav v-class-resp">
+            <li><a href="{% url 'courses' %}">Course</a></li>
+            <li><a href="{% url 'teach' %}">Teach</a></li>
+            <li><a href="{% url 'partners' %}">Partner</a></li>
+            <li><a class="btn" href="{% url 'login' %}"> Login</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+    </nav>
+
+
+
+    {% block content %}
+    {% endblock content %}
+
+
+
+    <div class="ruler">
+        <hr />
+    </div>
+    <footer>
+        <div class="footer">All rights &COPY; reserved to SOYAH</div>
+    </footer>
+    </section>
+    </main>
+
+    <script src="{% static 'js/resp.js' %}"></script>
+</body>
+
+</html>

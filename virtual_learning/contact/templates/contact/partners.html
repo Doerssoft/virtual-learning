@@ -1,0 +1,58 @@
+{% extends 'users/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/about-course.css' %}" />
+<link rel="stylesheet" href="{% static 'css/teach.css' %}" />
+<link rel="stylesheet" href="{% static 'css/partner.css' %}" />
+
+<section class="part-head">
+    <div class="teach-title-btm">
+        <p class="part-head-mid">
+            Bringing the Best Leaders <br>
+            to Upskill <br>
+            Your team & Employee.
+        </p>
+
+        <div class="buttons">
+            <button class="start-btn">Contact Us</button>
+        </div>
+
+    </div>
+
+    <div class="contactForm formm">
+        <form action="https://formspree.io/f/mzbykwbe" method="POST" id="my-form">
+            <h2>Get in Touch With Us</h2>
+            <div class="inputBox">
+                <input type="text" name="Full Name" required="required" />
+                <span>Full Name</span>
+            </div>
+            <div class="inputBox">
+                <input type="email" name="Email" required="required" />
+                <span>Email</span>
+            </div>
+            <div class="inputBox">
+                <input type="text" name="phone" required="required" />
+                <span>Phone Number</span>
+            </div>
+            <div class="inputBox">
+                <input type="text" name="phone" required="required" />
+                <span>Address</span>
+            </div>
+            <div class="inputBox">
+                <textarea name="Messages" required="required"></textarea>
+
+                <span>How can we help you? </span>
+            </div>
+            <div class="inputBox">
+                <input type="submit" value="Submit" />
+            </div>
+        </form>
+    </div>
+
+</section>
+
+
+{% endblock %}

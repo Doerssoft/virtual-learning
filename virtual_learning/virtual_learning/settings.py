@@ -42,6 +42,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # Custom apps here
     'users.apps.UsersConfig',
+    'courses',
+    'contact',
 
     'django.contrib.admin',
     'django.contrib.auth',
