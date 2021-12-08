@@ -1,0 +1,46 @@
+{% extends 'users/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<link rel="stylesheet" href="{% static 'css/about-course.css' %}" />
+
+<section class="cont-main">
+    <div class="cont">
+        <div class="left-cont">
+            <h1 class="text-big-w">COURSE TITLE</h1>
+
+            <div class="tutor">
+                <div class="tutor-img">
+
+                </div>
+                <div class="tutor-intro">
+                    <h1 class="tutor-name">SAROJ KARKI</h1>
+                </div>
+            </div>
+
+            <div class="small-line"></div>
+
+            <div class="about-course">
+                <div class="course-txt">
+                    <p class="text-small-w">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Reprehenderit iusto alias minus maxime tempore? Eaque tempora iure
+                        minus dolor eveniet.
+                    </p>
+                </div>
+
+            </div>
+            <div class="pay-btn">
+                <a href="{% url 'cm' %}"> <button class="btn-dark-c">Join this Course</button>
+            </div></a>
+        </div>
+        <div class="course-img">
+            <div class="image-c"></div>
+        </div>
+    </div>
+    <section>
+
+{% endblock %}
