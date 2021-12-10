@@ -38,7 +38,7 @@ def loginpage(request):
 
 def logoutpage(request):
     logout(request)
-    return redirect('login')
+    return redirect('users:login')
 
 def signuppage(request):
     if request.user.is_authenticated:

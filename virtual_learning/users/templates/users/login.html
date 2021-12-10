@@ -19,12 +19,15 @@
         <a href="main.html"> <img src="img/logo1.png" alt="" /> </a>
     </div>
     <div class="logo">
-        <a href="{% url 'index' %}"> <img src="{% static 'img/logo1.png' %}" alt="" /> </a>
+        <a href="{% url 'landing-page' %}"> <img src="{% static 'img/logo1.png' %}" alt="" /> </a>
     </div>
 
     <div class="main">
+        {% if form %}
         <div class="container">
-            <form action="/action_page.php">
+            <form method="post">
+                {% csrf_token %}
+
                 <div class="row">
                     <h2 style="text-align: center">
                         Login with Social Media or Manually
@@ -50,18 +53,21 @@
                             <p>Or Sign in manually:</p>
                         </div>
 
-                        <input type="text" name="username" placeholder="Username" required />
-                        <input type="password" name="password" placeholder="Password" required />
+                        <!-- <input type="text" name="username" placeholder="Username" required />
+                        <input type="password" name="password" placeholder="Password" required /> -->
+                        {{ form.username }}
+                        {{ form.password }}
                         <input type="submit" value="Login" />
                     </div>
                 </div>
             </form>
+            {% endif %}
         </div>
 
         <div class="bottom-container">
             <div class="row">
                 <div class="col">
-                    <a href="{% url 'signup' %}" style="color: white" class="btn">Sign up</a>
+                    <a href="{% url 'users:signup' %}" style="color: white" class="btn">Sign up</a>
                 </div>
                 <div class="col">
                     <a href="#" style="color: white" class="btn">Forgot password?</a>
@@ -70,4 +76,13 @@
         </div>
     </div>
 </body>
+
+<script>
+    // to add placeholder to login form 
+    const emailField = document.querySelector("#id_username");
+    const passwordField = document.querySelector("#id_password");
+
+    emailField.placeholder = '{{ form.username.label }}'
+    passwordField.placeholder = '{{ form.password.label }}'
+</script>
 </html>
