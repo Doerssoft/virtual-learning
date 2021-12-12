@@ -43,7 +43,11 @@
             <li><a href="{% url 'courses' %}">Course</a></li>
             <li><a href="{% url 'teach' %}">Teach</a></li>
             <li><a href="{% url 'partners' %}">Partner</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="#">{{ user.full_name | capfirst }}</a></li>
+            {% else %}
             <li><a class="btn" href="{% url 'login' %}"> Login</a></li>
+            {% endif %}
         </ul>
         <div class="burger">
             <div class="line"></div>
