@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.models import User
-from .forms import CreateUserForm
+from .forms import CreateUserForm, UpdateUserForm
 
 from django.contrib.auth import authenticate, login, logout
 
@@ -40,15 +40,15 @@ def logoutpage(request):
     logout(request)
     return redirect('users:login')
 
-def signuppage(request):
+def signup(request):
     if request.user.is_authenticated:
-        return redirect('index')
+        return redirect('landing-page')
     else:
         form = CreateUserForm
         if  request.method == "POST":
             form = CreateUserForm(request.POST)
             if form.is_valid():
                 form.save()
-                messages.warning(request, 'Thank You for registering with us !!!!')
-                return redirect('index')
+                messages.success(request, 'Registration Successful')
+                return redirect('landing-page')
         return render(request, 'users/signup.html', {'form':form})
