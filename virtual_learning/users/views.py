@@ -44,11 +44,15 @@ def signup(request):
     if request.user.is_authenticated:
         return redirect('landing-page')
     else:
-        form = CreateUserForm
-        if  request.method == "POST":
+        if request.method == "POST":
             form = CreateUserForm(request.POST)
             if form.is_valid():
                 form.save()
-                messages.success(request, 'Registration Successful')
-                return redirect('landing-page')
+                # messages.success(request, 'Registration Successful')
+                return redirect('login')
+            # else:
+                
+        else:
+            form = CreateUserForm()
+            # return render(request, 'users/signup.html', {'form': form})
         return render(request, 'users/signup.html', {'form':form})
