@@ -19,9 +19,7 @@ class User(AbstractUser):
 	# customizing fields
 	id = models.UUIDField(primary_key=True, default=uuid.uuid4)
 	email = models.EmailField(verbose_name='email', max_length=256, unique=True)
-	first_name = models.CharField(max_length=30)
 	middle_name = models.CharField(max_length=30, blank=True)
-	last_name = models.CharField(max_length=30)
 
 	USERNAME_FIELD = 'email' 
 	REQUIRED_FIELDS = ['username', 'first_name', 'last_name'] 
