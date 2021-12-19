@@ -51,6 +51,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
+    # 3rd party apps
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
+
+    'social_django'
 ]
 
 MIDDLEWARE = [
@@ -155,3 +165,15 @@ AUTH_USER_MODEL = 'users.User'
 # login-logout redirects
 LOGIN_REDIRECT_URL = 'landing-page'
 LOGOUT_REDIRECT_URL = 'landing-page'
+
+# for django-allauth
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+SITE_ID = 1
+ 
+# authall settings to use a custom user model that has email as the identifying field
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_AUTHENTICATION_METHOD = 'email'

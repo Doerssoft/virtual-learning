@@ -44,7 +44,9 @@
             <li><a href="{% url 'teach' %}">Teach</a></li>
             <li><a href="{% url 'partners' %}">Partner</a></li>
             {% if user.is_authenticated %}
+            <img src="" alt="">
             <li><a href="#">{{ user.full_name | capfirst }}</a></li>
+            <li><a href="#">{{ user.first_name }} {{ user.last_name }}</a></li>
             {% else %}
             <li><a class="btn" href="{% url 'login' %}"> Login</a></li>
             {% endif %}

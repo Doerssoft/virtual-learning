@@ -7,7 +7,7 @@ from .forms import CreateUserForm, UpdateUserForm
 
 from django.contrib.auth import authenticate, login, logout
 
-from .models import LoggedIn
+# from .models import LoggedIn
 
 # @login_required(login_url='login')
 def index(request):
@@ -15,26 +15,26 @@ def index(request):
     return render(request, template_name)
 
 
-def loginpage(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+# def loginpage(request):
+#     if request.method == 'POST':
+#         username = request.POST.get('username')
+#         password = request.POST.get('password')
 
-        user = authenticate(request, username=username, password=password)
+#         user = authenticate(request, username=username, password=password)
 
-        if user:
-            login(request, user)
-            x = LoggedIn.objects.create(name = request.user.username, is_logged_in = True )
-            print(x)
-            u = User.objects.all()
-            for i in u:
-                if i.username != x.name:
-                    print(i)
-            return redirect('index')
-        else:
-            messages.warning(request, 'Username or Password are not verified')
-            return redirect('login')
-    return render(request, 'users/login.html')
+#         if user:
+#             login(request, user)
+#             x = LoggedIn.objects.create(name = request.user.username, is_logged_in = True )
+#             print(x)
+#             u = User.objects.all()
+#             for i in u:
+#                 if i.username != x.name:
+#                     print(i)
+#             return redirect('index')
+#         else:
+#             messages.warning(request, 'Username or Password are not verified')
+#             return redirect('login')
+#     return render(request, 'users/login.html')
 
 def logoutpage(request):
     logout(request)
