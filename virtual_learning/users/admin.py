@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
 from .forms import CreateUserForm, UpdateUserForm
-from .models import User
+from .models import Profile, User
 
 
 class CustomUserAdmin(UserAdmin):
@@ -39,3 +39,4 @@ class CustomUserAdmin(UserAdmin):
     # customizing admins dashboard ENDS
 
 admin.site.register(User, CustomUserAdmin)
+admin.site.register(Profile)

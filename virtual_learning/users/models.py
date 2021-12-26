@@ -3,6 +3,7 @@ import uuid
 from django.db import models
 from django.contrib.auth.models import AbstractUser, User
 from django.core.exceptions import ValidationError
+from django.db.models.fields import CharField
 
 
 def profile_pic_path(instance, filename):
@@ -31,10 +32,10 @@ class User(AbstractUser):
 class Profile(models.Model):
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 	id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+	social_img = CharField(max_length=255, blank=True)
 	image = models.ImageField(
 		default='default_pic_author.jpg',
 		upload_to=profile_pic_path)
-	dob = models.DateField(auto_now=False, auto_now_add=False, null=True,)
 
 	def __str__(self):
 		return f"{self.user.username}'s Profile"

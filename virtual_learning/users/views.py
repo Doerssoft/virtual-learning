@@ -51,7 +51,6 @@ def signup(request):
                 # messages.success(request, 'Registration Successful')
                 return redirect('login')
             # else:
-                
         else:
             form = CreateUserForm()
             # return render(request, 'users/signup.html', {'form': form})
