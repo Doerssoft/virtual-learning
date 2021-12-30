@@ -4,11 +4,11 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from courses.models import Course
 from django.contrib.auth.models import User
-from .forms import CreateUserForm
+from .forms import CreateUserForm, UpdateUserForm
 
 from django.contrib.auth import authenticate, login, logout
 
-from .models import LoggedIn
+# from .models import LoggedIn
 
 # @login_required(login_url='login')
 def index(request):
@@ -19,40 +19,43 @@ def index(request):
     return render(request, template_name, {'ltc': latest_three_courses})
 
 
-def loginpage(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+# def loginpage(request):
+#     if request.method == 'POST':
+#         username = request.POST.get('username')
+#         password = request.POST.get('password')
 
-        user = authenticate(request, username=username, password=password)
+#         user = authenticate(request, username=username, password=password)
 
-        if user:
-            login(request, user)
-            x = LoggedIn.objects.create(name = request.user.username, is_logged_in = True )
-            print(x)
-            u = User.objects.all()
-            for i in u:
-                if i.username != x.name:
-                    print(i)
-            return redirect('index')
-        else:
-            messages.warning(request, 'Username or Password are not verified')
-            return redirect('login')
-    return render(request, 'users/login.html')
+#         if user:
+#             login(request, user)
+#             x = LoggedIn.objects.create(name = request.user.username, is_logged_in = True )
+#             print(x)
+#             u = User.objects.all()
+#             for i in u:
+#                 if i.username != x.name:
+#                     print(i)
+#             return redirect('index')
+#         else:
+#             messages.warning(request, 'Username or Password are not verified')
+#             return redirect('login')
+#     return render(request, 'users/login.html')
 
 def logoutpage(request):
     logout(request)
     return redirect('users:login')
 
-def signuppage(request):
+def signup(request):
     if request.user.is_authenticated:
-        return redirect('index')
+        return redirect('landing-page')
     else:
-        form = CreateUserForm
-        if  request.method == "POST":
+        if request.method == "POST":
             form = CreateUserForm(request.POST)
             if form.is_valid():
                 form.save()
-                messages.warning(request, 'Thank You for registering with us !!!!')
-                return redirect('index')
+                # messages.success(request, 'Registration Successful')
+                return redirect('login')
+            # else:
+        else:
+            form = CreateUserForm()
+            # return render(request, 'users/signup.html', {'form': form})
         return render(request, 'users/signup.html', {'form':form})

@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
     <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
 
+    <link   
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
@@ -45,7 +49,16 @@
             <li><a href="{% url 'teach' %}">Teach</a></li>
             <li><a href="{% url 'partners' %}">Partner</a></li>
             {% if user.is_authenticated %}
-            <li><a href="#">{{ user.full_name | capfirst }}</a></li>
+            <!-- <img src="{{ user.profile.social_img }}" alt="hjk"> -->
+            <!-- <li><a href="#">{{ user.first_name }} {{ user.last_name }}</a></li> -->
+            <li>{{ user.first_name }} {{ user.last_name }}</li>
+            <li><a href="{% url 'password_change' %}">updt pwd</a></li>
+            <li><a href="{% url 'logout' %}">Log out</a></li>
+            
+
+            <!-- dropdown starts -->
+            
+            <!-- dropdown ends -->
             {% else %}
             <li><a class="btn" href="{% url 'login' %}"> Login</a></li>
             {% endif %}
