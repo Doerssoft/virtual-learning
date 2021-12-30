@@ -36,7 +36,7 @@
 <body>
     <nav class="navBar h-nav-resp">
         <div class="logo v-class-resp">
-            <a href="{% url 'index' %}"> <img src="{% static 'img/soyah.png' %}" alt="Logo" />
+            <a href="{% url 'landing-page' %}"> <img src="{% static 'img/soyah.png' %}" alt="Logo" />
             </a>
         </div>
 
@@ -44,7 +44,11 @@
             <li><a href="{% url 'courses' %}">Course</a></li>
             <li><a href="{% url 'teach' %}">Teach</a></li>
             <li><a href="{% url 'partners' %}">Partner</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="#">{{ user.full_name | capfirst }}</a></li>
+            {% else %}
             <li><a class="btn" href="{% url 'login' %}"> Login</a></li>
+            {% endif %}
         </ul>
         <div class="burger">
             <div class="line"></div>
