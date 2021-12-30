@@ -23,7 +23,8 @@ class User(AbstractUser):
 	middle_name = models.CharField(max_length=30, blank=True)
 
 	USERNAME_FIELD = 'email' 
-	REQUIRED_FIELDS = ['username', 'first_name', 'last_name'] 
+  
+	REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
 
 	def __str__(self):
 		return self.username

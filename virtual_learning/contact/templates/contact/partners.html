@@ -23,26 +23,33 @@
     </div>
 
     <div class="contactForm formm">
-        <form action="https://formspree.io/f/mzbykwbe" method="POST" id="my-form">
+        <form action="" method="POST"name="patner-form">
+            {% csrf_token %}
+
             <h2>Get in Touch With Us</h2>
             <div class="inputBox">
-                <input type="text" name="Full Name" required="required" />
+                <!-- <input type="text" name="Full Name" required="required" /> -->
+                {{ form.full_name }}
                 <span>Full Name</span>
             </div>
             <div class="inputBox">
-                <input type="email" name="Email" required="required" />
+                <!-- <input type="email" name="Email" required="required" /> -->
+                {{ form.email }}
                 <span>Email</span>
             </div>
             <div class="inputBox">
-                <input type="text" name="phone" required="required" />
+                <!-- <input type="text" name="phone" required="required" /> -->
+                {{ form.phone }}
                 <span>Phone Number</span>
             </div>
             <div class="inputBox">
-                <input type="text" name="phone" required="required" />
+                <!-- <input type="text" name="phone" required="required" /> -->
+                {{ form.address }}
                 <span>Address</span>
             </div>
             <div class="inputBox">
-                <textarea name="Messages" required="required"></textarea>
+                <!-- <textarea name="Messages" required="required"></textarea> -->
+                {{ form.message}}
 
                 <span>How can we help you? </span>
             </div>

@@ -1,30 +1,52 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-
-
+from .models import Course, Videos, Author, Reach
+from json import dumps
+from django.core import serializers
+import json
+from django.core.serializers.json import DjangoJSONEncoder
 
 # @login_required(login_url='login')
 def courses(request):
     template_name = 'courses/courses.html'
-    return render(request, template_name)
+
+    courses = Course.objects.all()
+    return render(request, template_name, {'courses': courses})
 
 
 # @login_required(login_url='login')
 def teach(request):
     template_name = 'courses/teach.html'
-    return render(request, template_name)
+
+    form_link = Reach.objects.last()
+    return render(request, template_name, {'form_link': form_link})
 
 
 # @login_required(login_url='login')
-def ac(request):
+def ac(request, slug):
     template_name = 'courses/about-course.html'
-    return render(request, template_name)
+    course_detail = Course.objects.get(slug=slug)
+    course__author = Author.objects.get(id=course_detail.id)
+    return render(request, template_name, {'cd':course_detail, 'ca': course__author})
 
 # @login_required(login_url='login')
-def cm(request):
+def cm(request, id):
     template_name = 'courses/course-main.html'
-    return render(request, template_name)
+    # course_videos = serializers.serialize("json", Videos.objects.filter(course=id), fields = ("video_title","video",'pk'))
+    latest_three_courses = Course.objects.all().order_by('-id')[:3:-1]
+ 
+    course_videos = list(Videos.objects.filter(course=id))
+
+    videos = (Videos.objects.filter(course=id))
+
+    print('videos')
+    print(videos)
+
+    # videos_json = json.dumps(list(videos), cls=DjangoJSONEncoder)
+
+    course_detail = Course.objects.get(id=id)
+    return render(request, template_name, {'cv': videos, 'course_detail': course_detail, 'ltc' : latest_three_courses})
 
 
 # @login_required(login_url='login')
