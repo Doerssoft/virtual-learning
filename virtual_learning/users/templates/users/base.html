@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <link rel="stylesheet" href="{% static 'css/utils.css' %}" />
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -58,17 +59,70 @@
     {% endblock content %}
 
 
-
-    <div class="ruler">
-        <hr />
-    </div>
     <footer>
-        <div class="footer">All rights &COPY; reserved to SOYAH</div>
-    </footer>
-    </section>
+        <div class="main-content">
+          <div class="left box-footer">
+            <h2>About us</h2>
+            <div class="content-footer">
+              <p>Soyah is a Online Learning Platform.</p>
+              <div class="social">
+                <a href="https://www.facebook.com/soyahedu"><span class="fab fa-facebook-f"></span></a>
+                <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Ftwitter.com%2Fpdl_sandyy%3Ffbclid%3DIwAR0b0-Ma-3fq8SuWExGc4pvMPo0uslLJ9fbxDIj335o1TivcmseKq1YhY7U&h=AT0f0_eMzmfCU3phWyzUqmc1h7FleSFi2IbBe7V-lb_ONn9m-eidSIjYjtKxPoLXPwwmS4BHNFMHvRq7TlST53QMMhDTQ7ySGmGIc2L75U3ZVXnSH40UcBkyL75xjSNr5Y1K"><span class="fab fa-twitter"></span></a>
+                <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.instagram.com%2Fheysandyyyy0%3Ffbclid%3DIwAR2xsxzF9hPFiPNogXqDpUo3nDhvvlOoPKPWyJVNSiOe-v2vqa_2KjGiFKg&h=AT1vU0Av_YFovLN-ms7FbKHjng4GJOV7ManHs0MVuOpBw32FY-wGTIUR8SLPiaVMFIuG06Dfj_GTvq1d88f2cgFQ76v9RmRAEPzlwixTtf7C-PXY-1z9p_Fp1VYTrS1jMavL"><span class="fab fa-instagram"></span></a>
+                <a href="#"><span class="fab fa-youtube"></span></a>
+              </div>
+            </div>
+          </div>
+  
+          <div class="center box-footer">
+            <h2>Address</h2>
+            <div class="content-footer">
+              <div class="place">
+                <span class="fas fa-map-marker-alt"></span>
+                <span class="text-footer">Kathmandu, Nepal</span>
+              </div>
+              <div class="phone">
+                <span class="fas fa-phone-alt"></span>
+                <span class="text-footer">+977-9808698269</span>
+              </div>
+              <div class="email">
+                <span class="fas fa-envelope"></span>
+                <span class="text-footer">soyah123@example.com</span>
+              </div>
+            </div>
+          </div>
+  
+          <div class="right box-footer">
+            <h2>Contact us</h2>
+            <div class="content-footer">
+              <form action="#">
+                <div class="email">
+                  <div class="text-footer">Email *</div>
+                  <input type="email" required>
+                </div>
+                <div class="msg">
+                  <div class="text-footer">Message *</div>
+                  <textarea rows="2" cols="25" required></textarea>
+                </div>
+                <div class="btn-footer">
+                  <button type="submit">Send</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="bottom">
+          <center>
+            <span class="credit">SOYAH  | </span>
+            <span class="far fa-copyright"></span><span> 2021 All rights reserved.</span>
+          </center>
+        </div>
+      </footer>
     </main>
 
     <script src="{% static 'js/resp.js' %}"></script>
+    <script src="{% static 'js/particles.min.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
 </body>
 
 </html>

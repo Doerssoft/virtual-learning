@@ -4,6 +4,149 @@
 
 {% block content %}
 
+<link rel="stylesheet" href="{% static 'css/course-main.css' %}" />
+<link rel="stylesheet" href="{% static 'css/video-style.css' %}" />
+
+<section class="video-sec">
+  <h2 class="title"></h2>
+  <div class="container-vid">
+    <div id="video_player">
+      <video controls id="main-Video" src=""></video>
+    </div>
+    <div class="playlistBx">
+      <div class="header">
+        <div class="row-vid">
+          <span class="AllLessons"></span>
+        </div>
+      </div>
+      <ul class="playlist" id="playlist"></ul>
+    </div>
+  </div>
+</section>
+
+
+<section class="about-course">
+  <div class="about-heading">
+    <h2>About this Fest</h2>
+    <hr />
+  </div>
+  <div class="about-content">
+    {{ course_detail.course_details }}
+  </div>
+</section>
+
+
+<section class="mentor">
+
+  <h1>Similar Fests For You</h1>
+  <div class="underline">
+    <p class="text-line" style="font-size: x-large;">_______________</p>
+  </div>
+  <div class="row">
+
+
+    {% for course in ltc %}
+
+    <!-- <img src="{{ course.course_picture.url }}" alt="" /> -->
+
+    <div class="mentor-col">
+      <div class="mentor2 r-mentor">
+        <img src="{{ course.course_picture.url }}" alt="" />
+      </div>
+      <div class="name-of-mentor">{{ course.author }}</div></a>
+      <a href="{% url 'ac' course.slug %}">
+        <div class="layer">
+          <h3>{{ course.course_title}}</h3>
+
+        </div>
+      </a>
+
+    </div>
+
+    {% endfor %}
+
+  </div>
+</section>
+
+<section class="teach-on">
+  <div class="teach-txt">
+    <div class="teach-head">
+      <h2>Teach the World Online</h2>
+    </div>
+    <div class="teach-detail">
+      Create an online video course, reach students across the globe, and
+      earn money
+    </div>
+  </div>
+  <div class="teach-btn">
+    <a href="teach.html">
+      <div class="buttons">
+        <button class="start-btn">Reach Out to US</button>
+      </div>
+    </a>
+  </div>
+</section>
+
+
+<!-- <script src="{% static 'js/video-list.js' %}"></script> -->
+
+<script type="text/javascript">
+  
+  var allVideos = [
+    
+    {% for article in cv %}
+    {% if not forloop.first %},{% endif %}
+    {
+      name: "{{ article.video_title }}",
+      src: "{{ article.video }}",
+      id: 'video'+ "{{ article.id }}",
+    }
+    {% endfor %}
+  ]
+  
+  
+  
+  
+  
+  
+  let aallVideos = [
+    {
+      name: "Sample Video ",
+      src: "video",
+      id: "vid_1"
+    },
+    {
+      name: "Sample Video 2",
+      src: "video",
+      id: "vid_2"
+    },
+    {
+      name: "Sample Video 3",
+      src: "",
+      id: "vid_3"
+    },
+    {
+      name: "Sample Video 4",
+      src: "",
+      id: "vid_4"
+    },
+    {
+      name: "Sample Video 5",
+      src: "",
+      id: "vid_5"
+    },
+    {
+      name: "Sample Video 6",
+      src: "",
+      id: "vid_6"
+    }
+    
+  ]
+</script>
+<script src="{% static 'js/video-script.js' %}"></script>
+  
+
+
 
 
 {% endblock %}

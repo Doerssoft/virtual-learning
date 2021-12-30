@@ -13,37 +13,30 @@
   </div>
   <div class="row">
 
+    {% for course in courses %}
+
+    <!-- <img src="{{ course.course_picture.url }}" alt="" /> -->
+
     <div class="mentor-col">
-      <!-- <img src="img/saroj.jpg" alt="" /> -->
-      <div class="mentor2 r-mentor"> </div>
-      <div class="name-of-mentor">Saroj Ghimire</div></a>
-      <a href="{% url 'ac' %}">
+      <div class="mentor2 r-mentor"> 
+        <img src="{{ course.course_picture.url }}" alt="" />
+      </div>
+      <div class="name-of-mentor">{{ course.author }}</div></a>
+      <a href="{% url 'ac' course.slug %}">
         <div class="layer">
-          <h3>First Project</h3>
+          <h3>{{ course.course_title}}</h3>
 
         </div>
       </a>
 
     </div>
 
+    {% endfor %}
 
 
-    <div class="mentor-col">
-      <!-- <img src="img/prashant.jpg" alt="" /> -->
-      <div class="mentor1 r-mentor"></div>
-      <div class="name-of-mentor">Sandip Paudel</div>
-      <div class="layer">
-        <h3>Second Project</h3>
-      </div>
-    </div>
-    <div class="mentor-col">
-      <!-- <img src="img/sandy.jpg" alt="" /> -->
-      <div class="mentor3 r-mentor"></div>
-      <div class="name-of-mentor">Prashant Banjade</div>
-      <div class="layer">
-        <h3>Third Project</h3>
-      </div>
-    </div>
+
+    
+   
   </div>
 </section>
 

@@ -333,21 +333,21 @@ nav div img {
 .mentor1 {
   width: 25vw;
   height: 25vw;
-  background-image: url(../img/sandy.jpg);
+  /* background-image: url(../img/sandy.jpg); */
   background-size: cover;
 }
 
 .mentor2 {
   width: 25vw;
   height: 25vw;
-  background-image: url(../img/saroj.jpg);
+  /* background-image: url(../img/saroj.jpg); */
   background-size: cover;
 }
 
 .mentor3 {
   width: 25vw;
   height: 25vw;
-  background-image: url(../img/prashant.jpg);
+  /* background-image: url(../img/prashant.jpg); */
   background-size: cover;
 }
 
