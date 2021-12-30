@@ -4,43 +4,119 @@
 
 {% block content %}
 
-
 <link rel="stylesheet" href="{% static 'css/about-course.css' %}" />
 
 <section class="cont-main">
     <div class="cont">
-        <div class="left-cont">
-            <h1 class="text-big-w">COURSE TITLE</h1>
+      <div class="left-cont">
+        <h1 class="text-big-w">{{ cd.course_title }}</h1>
 
-            <div class="tutor">
-                <div class="tutor-img">
-
-                </div>
-                <div class="tutor-intro">
-                    <h1 class="tutor-name">SAROJ KARKI</h1>
-                </div>
-            </div>
-
-            <div class="small-line"></div>
-
-            <div class="about-course">
-                <div class="course-txt">
-                    <p class="text-small-w">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Reprehenderit iusto alias minus maxime tempore? Eaque tempora iure
-                        minus dolor eveniet.
-                    </p>
-                </div>
-
-            </div>
-            <div class="pay-btn">
-                <a href="{% url 'cm' %}"> <button class="btn-dark-c">Join this Course</button>
-            </div></a>
+        <div class="tutor">
+          <div class="tutor-img">
+              <img src="{{ ca.author_image.url }}" alt="" srcset="">
+          </div>
+          <div class="tutor-intro">
+              <h1 class="tutor-name">{{ cd.author }}</h1>
+          </div>
         </div>
-        <div class="course-img">
-            <div class="image-c"></div>
+
+        <div class="small-line"></div>
+
+        <div class="about-course">
+          <div class="course-txt">
+            <p class="text-small-w">
+              {{ cd.course_details }}
+            </p>
+          </div>
+
         </div>
+        <div class="pay-btn">
+          <a href="{% url 'cm' cd.id %}"> <button class="btn-dark-c">Join this Fest</button>
+        </div></a>
+      </div>
+      <div class="course-img">
+        <div class="image-c">
+            <img src="{{ cd.course_picture.url }}" alt="" srcset="">
+        </div>
+      </div>
     </div>
-    <section>
+  </section>
+
+
+  <section class="message-auth">
+    <div class="msg-head">
+      Message From Author
+    </div>
+  </div><div class="underline">
+    <p class="text-line" style="font-size: x-large;">_________________</p>
+  </div>
+    <div class="mentor-pic">
+      <img src="{{ ca.author_image.url }}" alt="">
+    </div>
+    <div class="mentor-msg">
+      {{ ca.mesage_from_author }}
+    </div>
+  </section>
+
+  <section class="about-auth">
+    <div class="msg-head">
+      About Author
+    </div><div class="underline">
+      <p class="text-line" style="font-size: x-large;">__________</p>
+    </div>
+    <div class="auth-container">
+    <div class="about-mentor-pic">
+      <img src="{{ ca.author_image.url }}" alt="">
+    </div>
+    <div class="mentor-detail">
+      <div class="mentor-name">{{ ca.author_name }}</div>
+      <div class="mentor-stat">{{ ca.author_title }}</div>
+      <div class="mentor-para">{{ ca.about_author}}</div>
+      <div class="mentor-links">
+        <div class="social-media">
+          <a href="{{ ca.author_fb_link }}" target="_blank" class="social-icon">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="{{ ca.author_twitter_link}}" target="_blank" class="social-icon">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="{{ ca.author_google_link}}" target="_blank" class="social-icon">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+          </a>
+          <a href="{{ ca.author_linkedin_link }}" target="_blank" class="social-icon">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </div>
+      </div>
+     
+
+    </div></div>
+  </section>
+
+  <section class="cont-main-btm">
+    <div class="cont">
+      <div class="left-cont">
+        <h1 class="text-big-w">{{ cd.course_title }}</h1>
+        <div class="auth-name">with <span>{{ ca.author_name}}</span></div>
+
+
+        <div class="small-line"></div>
+
+        <div class="about-course">
+          <div class="course-txt">
+            <p class="text-small-w">
+              {{ cd.course_details }}
+            </p>
+          </div>
+
+        </div>
+       
+      </div><div class="right-cont">
+      <div class="pay-btn">
+        <a href="{% url 'cm' cd.id %}"> <button class="btn-dark-btm">Join this Fest</button></a>
+      </div></div>
+    </div>
+  </section>
+
 
 {% endblock %}

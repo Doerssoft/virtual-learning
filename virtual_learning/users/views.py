@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from courses.models import Course
 from django.contrib.auth.models import User
 from .forms import CreateUserForm, UpdateUserForm
 
@@ -12,7 +13,10 @@ from django.contrib.auth import authenticate, login, logout
 # @login_required(login_url='login')
 def index(request):
     template_name = 'users/index.html'
-    return render(request, template_name)
+    
+    latest_three_courses = Course.objects.all().order_by('-id')[:3:-1]
+
+    return render(request, template_name, {'ltc': latest_three_courses})
 
 
 # def loginpage(request):
