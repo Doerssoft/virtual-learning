@@ -22,6 +22,7 @@ class User(AbstractUser):
 	full_name = models.CharField(max_length=90)
 
 	USERNAME_FIELD = 'email' 
+
 	REQUIRED_FIELDS = ['username', 'full_name'] 
 
 	def __str__(self):

@@ -3,19 +3,35 @@
 {% load static %}
 
 {% block content %}
-  <header class="background">
-    <!-- <hr class="line-w /> -->
-    <section class="firstSection">
+
+<link rel="stylesheet" href="{% static 'css/footer.css' %}" />
+
+
+{% if messages %}
+<ul id="message_container" class="messages" style="text-align: center;">
+  {% for message in messages %}
+  <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<header class="background" id="particles-js" >
+      
+    <section class="firstSection" >
       <div class="box-main">
         <div class="firstHalf">
-          <h1 class="text-big ">Where Reader Meet Leaders</h1>
-          <p class="title-small">
-            90 minutes videos for aspirants who want personal growth.
-          </p>
+          <h1 class="text-big ">Where Reader   Meet Leaders</h1>
+          <div class="text-typing-animation">
+            <div class="static-text"> 90 minutes videos for aspirants who want </div>
+            <div class="animation-text">
+                <div class="text5 text1"><span class="cursor">Personal Growth</span></div>
+                <div class="text5 text2"><span class="cursor">Typing</span></div>
+                <div class="text5 text3"><span class="cursor">Animation</span></div>
+            </div>
+        </div>
           <div class="buttons">
-            <a href="{% url 'login' %}"> <button class="btn">Get Started</button>
-            </a>
-          </div>
+            <a href="{% url 'login' %}">  <button class="btn">Get Started</button>
+            </a></div>
         </div>
         <div class="secondHalf">
           <img src="{% static 'img/soyah.jpg' %}" alt="" />
@@ -25,193 +41,115 @@
   </header>
 
   <main>
-    <section class="container-all">
-      <div class="first-section">
-        <h1>You're Ready <br>So are We</h1>
+     <section class="column-wrapper">
+       <div class="gt-text">
+         <div class="gt-headline">
+           You're Ready.
+           <br>
+           So are We.
+         </div>
+         
+       </div>
 
-        <div class="row-first">
-
-          <div class="first-col">
-
-            <div class="name-of-mentor">About Us</div></a>
-            <a href="about-course.html">
-              <div class="layer">
-                <h3>First Project</h3>
-
-              </div>
-            </a>
-
-          </div>
-
-
-
-          <div class="first-col">
-            <!-- <img src="img/prashant.jpg" alt="" /> -->
-            <div class=" r-mentor"></div>
-            <div class="name-of-mentor">Sandip Paudel</div>
-            <div class="layer">
-              <h3>Second Project</h3>
+       <div class="list-container">
+         <div class="first-list list-child">
+            <div class="list-head">
+              About Us
             </div>
-          </div>
-          <div class="first-col">
-            <!-- <img src="img/sandy.jpg" alt="" /> -->
-            <div class=" r-mentor"></div>
-            <div class="name-of-mentor">Prashant Banjade</div>
-            <div class="layer">
-              <h3>Third Project</h3>
+            <div class="image-arr">
+              <img src="{% static 'img/arrow.png' %}" alt="">
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
+            
+         </div>
+         <div class="first-list list-child">
 
+         </div>
+         <div class="first-list list-child">
+
+         </div>
+       </div>
+     </section>
 
     <section class="story">
-      <h1 class="titleStory text-big text-cl"><span style="color: #e09900;">WHO</span> WE ARE!</h1>
+      <h1 class="titleStory text-big text-cl"><span style= "color: #e09900;">WHO</span> WE ARE!</h1>
       <div class="underline">
         <p class="text-line">________________</p>
       </div>
       <div class="about-us">
         <div class="photo">
-          <img class="myphoto" src="{% static 'img/usss.jpg' %}" alt="">
+            <img class= "myphoto" src="{% static 'img/uss.jpg' %}" alt="">
         </div>
 
         <div class="textt">
-
+          
           <p style="text-align:center;">
-            <span> Young </span>
-
+          <span> Young </span>
+         
+        </p>
+        <p style="text-align:center;">
+          <span class="bold-txt"> Learners </span>
+          <span> -Aiming  </span>
           </p>
-          <p style="text-align:center;">
-            <span class="bold-txt"> Learners </span>
-            <span> -Aiming </span>
+        <p style="text-align:center;">
+          <span> To build </span>
           </p>
-          <p style="text-align:center;">
-            <span> To build </span>
+        <p style="text-align:center;">
+          <span> A better & faster </span>
           </p>
-          <p style="text-align:center;">
-            <span> A better & faster </span>
+        <p style="text-align:center;">
+          <span> Platform </span>
           </p>
-          <p style="text-align:center;">
-            <span> Platform </span>
+        <p style="text-align:center;">
+          <span> To connect </span>
           </p>
-          <p style="text-align:center;">
-            <span> To connect </span>
+        <p style="text-align:center;">
+          <span class="bold-txt"> Readers and Leaders. </span>
           </p>
-          <p style="text-align:center;">
-            <span class="bold-txt"> Readers and Leaders. </span>
-          </p>
-
-        </div>
-
+         
       </div>
 
+      </div>
+      
     </section>
     <hr class="line-gr" />
-
-    </div>
-    </div>
-    </section>
-
+    
+</div>
+      </div>
+    </section> 
+    
     <section class="mentor">
       <h1>Meet Our Mentors</h1>
-
+      
       <div class="row">
+      
+
+        {% for course in ltc %}
 
         <div class="mentor-col">
           <!-- <img src="img/saroj.jpg" alt="" /> -->
-          <div class="mentor2 r-mentor"> </div>
-          <div class="name-of-mentor">Saroj Ghimire</div></a>
-          <a href="{% url 'ac' %}">
-            <div class="layer">
-              <h3>First Project</h3>
-
-            </div>
-          </a>
-
-        </div>
-
-
-
-        <div class="mentor-col">
-          <!-- <img src="img/prashant.jpg" alt="" /> -->
-          <div class="mentor1 r-mentor"></div>
-          <div class="name-of-mentor">Sandip Paudel</div>
-          <div class="layer">
-            <h3>Second Project</h3>
+          <div class="mentor2 r-mentor"> 
+            <img src="{{ course.course_picture.url }}" alt="" />
           </div>
+        <div class="name-of-mentor">{{ course.author}}</div></a>
+        <a href="{% url 'ac' course.slug %}"><div class="layer">
+            <h3>{{ course.course_title}}</h3>
+            
+          </div> </a>
+         
         </div>
-        <div class="mentor-col">
-          <!-- <img src="img/sandy.jpg" alt="" /> -->
-          <div class="mentor3 r-mentor"></div>
-          <div class="name-of-mentor">Prashant Banjade</div>
-          <div class="layer">
-            <h3>Third Project</h3>
-          </div>
-        </div>
+    {% endfor %}
+
       </div>
     </section>
-    <section class="contact">
-      <div class="content">
-        <h2>Contact Us</h2>
-        <p>
-          We would love to represent to your queries and help you succed.
-          <br />
-          Feel free to get in touch with us.
-        </p>
-      </div>
-      <div class="container">
-        <div class="contactInfo">
-          <div class="box">
-            <div class="icon">
-              <i class="fa fa-map-marker" aria-hidden="true"></i>
-            </div>
-            <div class="text">
-              <h3>Address</h3>
-              <p>Battisputali, Kathmandu</p>
-            </div>
-          </div>
-          <div class="box">
-            <div class="icon">
-              <i class="fa fa-phone" aria-hidden="true"></i>
-            </div>
-            <div class="text">
-              <h3>Phone</h3>
-              <p>9808698269</p>
-            </div>
-          </div>
-          <div class="box">
-            <div class="icon">
-              <i class="fa fa-envelope-o" aria-hidden="true"></i>
-            </div>
-            <div class="text">
-              <h3>Email</h3>
-              <p>sundeeppoudel@gmail.com</p>
-            </div>
-          </div>
-        </div>
-        <div class="contactForm">
-          <form action="https://formspree.io/f/mzbykwbe" method="POST" id="my-form">
-            <h2>Send Message</h2>
-            <div class="inputBox">
-              <input type="text" name="Full Name" required="required" />
-              <span>Full Name</span>
-            </div>
-            <div class="inputBox">
-              <input type="email" name="Email" required="required" />
-              <span>Email</span>
-            </div>
-            <div class="inputBox">
-              <textarea name="Messages" required="required"></textarea>
 
-              <span>Type your Message ... </span>
-            </div>
-            <div class="inputBox">
-              <input type="submit" value="Submit" />
-            </div>
-          </form>
-          <div class="status"></div>
-        </div>
-      </div>
-      
+
+
+    <script>
+        var message_ele = document.getElementById("message_container");
+  
+        setTimeout(function () {
+          message_ele.style.display = "none";
+        }, 3000);
+      </script>
+  
       {% endblock %}
