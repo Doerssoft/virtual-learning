@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from courses.models import Course
 from django.contrib.auth.models import User
-from .forms import CreateUserForm, UpdateUserForm
+# from .forms import CreateUserForm, UpdateUserForm
 
 from django.contrib.auth import authenticate, login, logout
 
@@ -44,18 +44,18 @@ def logoutpage(request):
     logout(request)
     return redirect('users:login')
 
-def signup(request):
-    if request.user.is_authenticated:
-        return redirect('landing-page')
-    else:
-        if request.method == "POST":
-            form = CreateUserForm(request.POST)
-            if form.is_valid():
-                form.save()
-                # messages.success(request, 'Registration Successful')
-                return redirect('login')
-            # else:
-        else:
-            form = CreateUserForm()
-            # return render(request, 'users/signup.html', {'form': form})
-        return render(request, 'users/signup.html', {'form':form})
+# def signup(request):
+#     if request.user.is_authenticated:
+#         return redirect('landing-page')
+#     else:
+#         if request.method == "POST":
+#             form = CreateUserForm(request.POST)
+#             if form.is_valid():
+#                 form.save()
+#                 # messages.success(request, 'Registration Successful')
+#                 return redirect('login')
+#             # else:
+#         else:
+#             form = CreateUserForm()
+#             # return render(request, 'users/signup.html', {'form': form})
+#         return render(request, 'users/signup.html', {'form':form})

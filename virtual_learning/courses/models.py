@@ -1,7 +1,8 @@
 from django.db import models
 from django.db.models.fields import CharField
-from users.models import User
+# from users.models import User
 # from courses.models import Author
+from django.contrib.auth.models import User
 from django.core.validators import FileExtensionValidator
 from virtual_learning.utils import unique_slug_generator
 from django.db.models.signals import pre_save

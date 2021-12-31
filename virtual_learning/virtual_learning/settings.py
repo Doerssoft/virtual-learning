@@ -168,7 +168,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ########################## CUSTOM CONFIGURATIONS HERE #############################
 
 # modify this only when app name is renamed, in that case you have to update installed_app also
-AUTH_USER_MODEL = 'users.User'
+# AUTH_USER_MODEL = 'users.User'
 
 # login-logout redirects
 LOGIN_REDIRECT_URL = 'landing-page'
