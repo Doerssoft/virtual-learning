@@ -10,8 +10,8 @@ const ulTag = document.querySelector(".playlist");
 AllLessons.innerHTML = `${allVideos.length} Chapters  `
 
 
-console.log(allVideos.length);
-console.log('allVideos.length');
+// console.log(allVideos.length);
+// console.log('allVideos.length');
 
 
 
