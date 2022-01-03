@@ -1,6 +1,6 @@
 from django import forms
 from django.forms.widgets import Textarea
-from .models import Contact
+# from .models import Contact
 
 # class ContactForm(ModelForm):
 
