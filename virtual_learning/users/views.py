@@ -9,6 +9,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 
 # from .models import LoggedIn
+# from .forms import ContactForm
+
 
 # @login_required(login_url='login')
 def index(request):
@@ -59,3 +61,19 @@ def logoutpage(request):
 #             form = CreateUserForm()
 #             # return render(request, 'users/signup.html', {'form': form})
 #         return render(request, 'users/signup.html', {'form':form})
+
+
+# def contact_us(request):
+#     if request.method == "POST":
+#         form = ContactForm(request.post)
+
+#         if form.is_valid():
+#             #send email
+#             #no need to save anything
+#             pass
+#     else:
+#         form = ContactForm()
+    
+#     return render(request, "")
+
+        
