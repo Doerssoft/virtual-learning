@@ -25,13 +25,16 @@ def teach(request):
 
 # @login_required(login_url='login')
 def ac(request, slug):
+    """ about course"""
     template_name = 'courses/about-course.html'
     course_detail = Course.objects.get(slug=slug)
-    course__author = Author.objects.get(id=course_detail.id)
-    return render(request, template_name, {'cd':course_detail, 'ca': course__author})
+    course_author = Author.objects.get(id=course_detail.author.id)
+    return render(request, template_name, {'cd':course_detail, 'ca': course_author})
 
-# @login_required(login_url='login')
+
+@login_required(login_url='login')
 def cm(request, id):
+    " page that renders videos"
     template_name = 'courses/course-main.html'
     # course_videos = serializers.serialize("json", Videos.objects.filter(course=id), fields = ("video_title","video",'pk'))
     latest_three_courses = Course.objects.all().order_by('-id')[:3:-1]
