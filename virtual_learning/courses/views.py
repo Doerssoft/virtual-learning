@@ -30,7 +30,7 @@ def ac(request, slug):
     course__author = Author.objects.get(id=course_detail.id)
     return render(request, template_name, {'cd':course_detail, 'ca': course__author})
 
-# @login_required(login_url='login')
+@login_required(login_url='login')
 def cm(request, id):
     template_name = 'courses/course-main.html'
     # course_videos = serializers.serialize("json", Videos.objects.filter(course=id), fields = ("video_title","video",'pk'))
