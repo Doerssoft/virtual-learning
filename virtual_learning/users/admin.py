@@ -6,7 +6,8 @@ from django.contrib.auth.admin import UserAdmin
 # from .models import User
 
 
-
+admin.site.site_header = "Soyah"
+admin.site.site_title = "Soyah Dashboard"
 
 # class CustomUserAdmin(UserAdmin):
 #     add_form = CreateUserForm
